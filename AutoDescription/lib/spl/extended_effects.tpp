@@ -341,7 +341,7 @@ DEFINE_PATCH_MACRO ~load_level_effects~ BEGIN
 	GET_OFFSET_ARRAY headerOffsets SPL_V10_HEADERS
 	PHP_EACH headerOffsets AS _ => headerOffset BEGIN
 		READ_SHORT (headerOffset + SPL_HEAD_level_required) requiredLevel
-		READ_SHORT (headerOffset + SPL_HEAD_target) spellTarget
+		READ_BYTE  (headerOffset + SPL_HEAD_target) spellTarget
 		READ_BYTE  (headerOffset + SPL_HEAD_target_number) spellTargetNumber
 		READ_SHORT (headerOffset + SPL_HEAD_projectile) spellProjectile
 
@@ -382,7 +382,7 @@ BEGIN
 	LPF ~get_spell_headeroffset_for_level~ INT_VAR castingLevel RET headerOffset END
 
 	READ_SHORT (headerOffset + SPL_HEAD_level_required) requiredLevel
-	READ_SHORT (headerOffset + SPL_HEAD_target) spellTarget
+	READ_BYTE  (headerOffset + SPL_HEAD_target) spellTarget
 	READ_BYTE  (headerOffset + SPL_HEAD_target_number) spellTargetNumber
 	READ_SHORT (headerOffset + SPL_HEAD_projectile) spellProjectile
 

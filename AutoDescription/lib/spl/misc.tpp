@@ -71,7 +71,7 @@ DEFINE_PATCH_FUNCTION ~spell_range~ RET description BEGIN
 	    FOR (headerIndex = 0; headerIndex < headerCount; headerIndex += 1) BEGIN
             SET offset = headerOffset + 0x28 * headerIndex
 
-			READ_SHORT (offset + SPL_HEAD_target) target
+			READ_BYTE  (offset + SPL_HEAD_target) target
 			READ_SHORT (offset + SPL_HEAD_range) range
 			READ_SHORT (offset + SPL_HEAD_level_required) requiredLevel
 
@@ -832,7 +832,7 @@ DEFINE_PATCH_FUNCTION ~spell_target~ RET description spellTarget BEGIN
 	    FOR (headerIndex = 0; headerIndex < headerCount; headerIndex += 1) BEGIN
             SET offset = headerOffset + 0x28 * headerIndex
 
-			READ_SHORT (offset + SPL_HEAD_target) target
+			READ_BYTE (offset + SPL_HEAD_target) target
 
 			LPF ~spell_target_by_projectile~ INT_VAR target RET areaTarget END
 
