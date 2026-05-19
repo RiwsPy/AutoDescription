@@ -457,8 +457,8 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY ~damage_types~ BEGIN
 	~%DAMAGETYPE_magic_fire%~  => 10120030 //  33554432 ~points de dégâts de feu magique~
 	~%DAMAGETYPE_magic_cold%~  => 10120031 //  67108864 ~points de dégâts de froid magique~
 	~%DAMAGETYPE_stunning%~    => 10120032 // 134217728 ~points de dégâts non létal~
-	~%DAMAGETYPE_soul_eater%~  => 101092   // 268435456 ~points de dégâts~
-	~%DAMAGETYPE_disease%~     => 101092   //1073741824 ~points de dégâts~
+	// ~%DAMAGETYPE_soul_eater%~  => 101092   // 268435456 ~points de dégâts~
+	// ~%DAMAGETYPE_disease%~     => 101092   //1073741824 ~points de dégâts~
 END
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY ~ids_files~ BEGIN
@@ -1681,8 +1681,7 @@ DEFINE_PATCH_MACRO ~opcode_12_is_valid~ BEGIN
 	LOCAL_SET damage_type = parameter2 - mode
 
 	PATCH_IF NOT VARIABLE_IS_SET $damage_types(~%damage_type%~) BEGIN
-		// 	SET isValid = 0
-		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: Unknown damage type : %damage_type%.~ END
+		LPF ~add_log_warning~ STR_VAR message = EVAL ~Opcode %opcode%: Unknown damage type : %damage_type%.~ END
 	END
 	PATCH_IF mode > 3 OR mode < 0 BEGIN
 		SET isValid = 0
