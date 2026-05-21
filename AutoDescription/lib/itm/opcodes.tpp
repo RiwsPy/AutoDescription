@@ -1226,12 +1226,19 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_1~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_1_common~ BEGIN
+	// FIXME: le résultat de SPSD02 n'est toujours pas correct (attaque impossible attendue)
 	LOCAL_SET is_negative = parameter1 < 0 ? 1 : 0
 	SET value = ABS parameter1
+	SET value &= 0xffff
 
-	// P2 = 1 ou P2 = 3: si P1 > 10 ou < 0 => P1 = 10
-	PATCH_IF (parameter2 == MOD_TYPE_flat OR parameter2 == 3) AND NOT VARIABLE_IS_SET $opcode_1_values(~%value%~) BEGIN
-		SET value = 10
+	// P2 = 1 ou P2 = 3: si P1 > 10 → P1 = 10, si P1 < 0 → P1 = 0
+	PATCH_IF (parameter2 == MOD_TYPE_flat OR parameter2 == 3) BEGIN
+		PATCH_IF parameter1 < 0 BEGIN
+			SET value = 0
+		END
+		ELSE PATCH_IF value > 10 BEGIN
+			SET value = 10
+		END
 	END
 
 	SET parameter2 = (parameter2 == 3 AND NOT is_ee) ? MOD_TYPE_cumulative : parameter2
@@ -1257,7 +1264,7 @@ DEFINE_PATCH_MACRO ~opcode_1_common~ BEGIN
 		END
 	END
 
-	PATCH_IF parameter1 == 0 AND (parameter2 == MOD_TYPE_flat OR parameter2 == MOD_TYPE_percentage OR parameter2 == 3) BEGIN
+	PATCH_IF value == 0 AND (parameter2 == MOD_TYPE_flat OR parameter2 == MOD_TYPE_percentage OR parameter2 == 3) BEGIN
 		SET strref += 4 // ~Attaque impossible~
 	END
 	ELSE BEGIN
@@ -1284,16 +1291,17 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_1_is_valid~ BEGIN
 	LOCAL_SET value = ABS parameter1
+	SET value &= 0xffff
 
 	LPM ~opcode_modstat_is_valid~
 	PATCH_IF parameter2 < 0 OR parameter2 > 4 BEGIN
 		SET isValid = 0
-		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: Unkwnow method : %parameter1%.~ END
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: Unknown method : %parameter1%.~ END
 	END
 
 	PATCH_IF parameter2 == MOD_TYPE_cumulative AND NOT VARIABLE_IS_SET $opcode_1_values(~%value%~) BEGIN
 		SET isValid = 0
-		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: Invalid parameter1 value ([-10 10] expected).~ END
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: Invalid parameter1 value : %parameter1% ([-10 10] expected).~ END
 	END
 
 	PATCH_IF parameter2 == 3
