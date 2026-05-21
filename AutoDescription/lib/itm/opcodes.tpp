@@ -2906,7 +2906,7 @@ DEFINE_PATCH_MACRO ~opcode_self_39~ BEGIN
 
 // Adaptation opcode 39 https://www.baldursgateworld.fr/viewtopic.php?f=509&t=33168&p=519115#p519115
 
-	PATCH_IF is_ee == 0 OR parameter2 != 1 BEGIN
+	PATCH_IF (is_ee == 0 OR parameter2 != 1) AND timingMode != TIMING_permanent AND timingMode != TIMING_delayed AND timingMode != 7 BEGIN
 		SPRINT description @10390001 // ~Endort %theTarget%~
 	END
 	ELSE BEGIN
@@ -2915,7 +2915,7 @@ DEFINE_PATCH_MACRO ~opcode_self_39~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_39~ BEGIN
-	PATCH_IF is_ee == 0 OR parameter2 != 1 BEGIN
+	PATCH_IF (is_ee == 0 OR parameter2 != 1) AND timingMode != TIMING_permanent AND timingMode != TIMING_delayed AND timingMode != 7 BEGIN
 		SPRINT description @10390002 // ~d'endormir %theTarget%~
 	END
 	ELSE BEGIN
