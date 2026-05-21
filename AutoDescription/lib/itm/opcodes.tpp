@@ -2142,7 +2142,7 @@ END
 DEFINE_PATCH_MACRO ~opcode_18_common~ BEGIN
 	// SET isCumulative = parameter2 != 6
 	SET damageAmount = parameter1
-	SET healOnlyMaxPV = parameter2 >= 3 AND parameter2 <= 5 OR is_ee == 1 AND special != 0
+	SET healOnlyMaxPV = parameter2 >= 3 AND parameter2 <= 5 OR is_ee == 1 AND (special BAND BIT0) == 1
 	SET parameter2 = parameter2 MODULO 3
 	PATCH_IF parameter2 == MOD_TYPE_cumulative AND NOT ~%complex_value%~ STRING_EQUAL ~~ BEGIN
 		SPRINT value ~%complex_value%~
