@@ -7236,6 +7236,7 @@ END
  * Item: Create Item in Slot [143] *
  * ------------------------------- */
 DEFINE_PATCH_MACRO ~opcode_self_143~ BEGIN
+	LPM ~opcode_143_common~
 	LPF ~get_item_name~ STR_VAR file = EVAL ~%resref%~ RET itemName END
 	LPF ~get_ids_name~ INT_VAR entry = ~%parameter1%~ file = ~20~ RET slotName = idName END
 
@@ -7245,6 +7246,7 @@ DEFINE_PATCH_MACRO ~opcode_self_143~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_143~ BEGIN
+	LPM ~opcode_143_common~
 	LPF ~get_item_name~ STR_VAR file = EVAL ~%resref%~ RET itemName END
 	LPF ~get_ids_name~ INT_VAR entry = ~%parameter1%~ file = ~20~ RET slotName = idName END
 
@@ -7263,6 +7265,15 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_143_group~ BEGIN
 	LPM ~opcode_143_group_mod~
+END
+
+DEFINE_PATCH_MACRO ~opcode_143_common~ BEGIN
+	//  Note: When using a non-permanent timing mode, it applies a delayed opcode #123 effect based on the duration, but with an empty resource field, resulting in nothing being removed.
+	PATCH_IF timingMode == TIMING_duration OR timingMode == TIMING_while_equipped OR timingMode == TIMING_delayed_duration OR
+			 timingMode == 5 OR timingMode == 6 OR timingMode == 8 OR timingMode == TIMING_duration_ticks OR timingMode == TIMING_absolute_duration BEGIN 
+		timingMode = TIMING_permanent
+		LPF ~add_log_warning~ STR_VAR message = EVAL ~Opcode %opcode% : non-permanent timing mode (%timingMode%) are permanent (bug).~ END
+	END
 END
 
 DEFINE_PATCH_MACRO ~opcode_143_is_valid~ BEGIN
