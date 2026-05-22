@@ -4181,13 +4181,17 @@ DEFINE_PATCH_MACRO ~opcode_self_80~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_80~ BEGIN
+	// FIXME? : plutôt étrange que la version "not short" soit plus courte
+	// La version longue est plus explicite mais induit en erreur car la surdité n'est pas cumulable
+	// En plus on perd le lien avec l'opcode 81 : guérir de la surdité
+	// On pourrait conserver la version courte et faire une version longue qui ajoute l'impact (50% d'échec) sans passer par l'opcode 60
 	PATCH_IF NOT use_short_effect_description BEGIN
 		SPRINT description @10800003 // ~d'assourdir %theTarget%~
 	END
 	ELSE BEGIN
 		SET parameter1 = 50
 		SET custom_int = 3 // profanes et divins
-		LPM ~opcode_self_probability_60~
+		LPM ~opcode_target_probability_60~
 	END
 END
 
