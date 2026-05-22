@@ -3599,7 +3599,7 @@ END
 DEFINE_PATCH_MACRO ~opcode_self_probability_62~ BEGIN
 	LOCAL_SET amount = parameter1
 	LOCAL_SET level = parameter2
-	LOCAL_SET spellLevelMax = 9
+	LOCAL_SET spellLevelMax = 7
 	LOCAL_SET spellTypes = 1 << 1
 
 	LPF ~opcode_self_42_62~ INT_VAR level amount spellTypes startStrref = 10620011 RET description END
