@@ -6973,8 +6973,7 @@ DEFINE_PATCH_MACRO ~opcode_132_common~ BEGIN
 	// A negative value of Statistic Modifier sets the Strength, Constitution and Dexterity of the targeted creature(s) to 25.
 	// N'est pas à prendre au pied de la lettre : -1 est considéré comme 255, -10 comme 246, -255 comme 1...
 	SET parameter1 = parameter1 MODULO 256
-	PATCH_IF parameter1 >= 25 BEGIN
-		SET parameter2 = MOD_TYPE_flat
+	PATCH_IF parameter1 > 25 BEGIN
 		SET parameter1 = 25
 	END
 END
