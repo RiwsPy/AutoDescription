@@ -1765,6 +1765,7 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_13~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_13_is_valid~ BEGIN
+	// TODO: les autres valeurs ont tout de même un effet
 	PATCH_IF NOT VARIABLE_IS_SET $death_to_strref(~%parameter2%~) BEGIN
 		SET isValid = 0
 		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: Unknown Death Type %parameter2%.~ END
@@ -2346,7 +2347,7 @@ END
 DEFINE_PATCH_MACRO ~opcode_target_23~ BEGIN
 	LPM ~opcode_23_common~
 	PATCH_IF parameter2 == MOD_TYPE_flat AND parameter1 == 10 BEGIN
-		SPRINT description @10230003 // ~Le moral %ofTheTarget% ne peut flancher~
+		SPRINT description @10230003 // ~Rétabli le moral %ofTheTarget%~
 	END
 	ELSE BEGIN
 		LPF ~opcode_target~ INT_VAR strref = 10230002 RET description END // ~le moral~
@@ -2359,13 +2360,12 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_23_common~ BEGIN
 	PATCH_IF is_ee == 0 OR special == 0 BEGIN
-		//TODO: Pour ce cas, plutot avoir une phrase du genre: Le moral est à son maximum
 		SET parameter1 = 10
 		SET parameter2 = MOD_TYPE_flat
 	END
 
 	PATCH_IF parameter2 == MOD_TYPE_flat AND parameter1 == 10 BEGIN
-		SPRINT description @10230003 // ~Le moral %ofTheTarget% ne peut flancher~
+		SPRINT description @10230003 // ~Rétabli le moral %ofTheTarget%~
 	END
 	ELSE BEGIN
 		LPF ~opcode_target~ INT_VAR strref = 10230002 RET description END // ~le moral~
@@ -2761,6 +2761,7 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_33~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_33_is_valid~ BEGIN
+	// TODO: ajouter un warning pour les moddeurs sur l'opcode 33 + type 3 qui est partiellement bug
 	PATCH_IF is_ee BEGIN
 		LPM ~opcode_modstat3_is_valid~
 	END
@@ -3126,7 +3127,7 @@ END
  * Cure: Invisibility [47] *
  * ----------------------- */
 DEFINE_PATCH_MACRO ~opcode_self_47~ BEGIN
-	SPRINT description @10470001 // ~Immunité à l'invisibilité~
+	SPRINT description @10470001 // ~Dissipation de l'invisibilité~
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_47~ BEGIN
@@ -3319,7 +3320,8 @@ DEFINE_PATCH_MACRO ~opcode_57_is_valid~ BEGIN
 			 parameter2 > 19 AND parameter2 < 33 OR
 			 parameter2 > 35 AND parameter2 < 49
 			 BEGIN
-		SET isValid = 0
+		// l'opcode est valide même si l'alignement est inconnu
+		// SET isValid = 0
 		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: Unknown alignment %parameter2%.~ END
 	END
 END
@@ -6224,7 +6226,7 @@ END
  * Cure: (Remove) Invisibility [116] *
  * --------------------------------- */
 DEFINE_PATCH_MACRO ~opcode_self_116~ BEGIN
-	LPM ~opcode_self_47~ // ~Immunité à l'invisibilité~
+	LPM ~opcode_self_47~ // ~Dissipation de l'invisibilité~
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_116~ BEGIN
