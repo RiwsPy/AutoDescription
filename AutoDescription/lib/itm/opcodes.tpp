@@ -3674,7 +3674,7 @@ DEFINE_PATCH_MACRO ~opcode_target_67~ BEGIN
             END
         END
 		// Allégiance de la créature non modifiée, donc intéressant
-		PATCH_IF parameter2 == 2 OR parameter2 == 4 OR parameter2 >= 6 BEGIN
+		PATCH_IF parameter2 != 0 AND parameter2 != 1 AND parameter2 != 3 AND parameter2 != 5 BEGIN
 			LPF ~get_creature_allegiance~ STR_VAR file = EVAL ~%resref%~ RET allegiance END
 			PATCH_IF allegiance >= 200 BEGIN // EVILCUTOFF
 				SET strref = 10670002 // ~Invoque une créature hostile (%creatureName%)~
@@ -3715,7 +3715,7 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_67~ BEGIN
                 SPRINT lifeDice @10670021 // ~ de %creatureLevel% dés de vie~
             END
         END
-		PATCH_IF parameter2 == 2 OR parameter2 == 4 OR parameter2 >= 6 BEGIN
+		PATCH_IF parameter2 != 0 AND parameter2 != 1 AND parameter2 != 3 AND parameter2 != 5 BEGIN
 			PATCH_IF allegiance >= 200 BEGIN // EVILCUTOFF
 				SET strref = 10670004 // ~d'invoquer une créature hostile (%creatureName%)~
 			END
