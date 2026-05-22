@@ -6891,20 +6891,30 @@ END
  * ------------------ */
 // TODO : split des effets
 DEFINE_PATCH_MACRO ~opcode_self_130~ BEGIN
-    SPRINT description @11300001 // ~Bénédiction~
+	LPM ~opcode_130_common~
+	SPRINT description @11300001 // ~Bénédiction (%value%)~
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_130~ BEGIN
-    SPRINT description @11300003 // ~de lancer Bénédiction sur %theTarget%~
+	LPM ~opcode_130_common~
+	SPRINT description @11300003 // ~de lancer Bénédiction (%value%) sur %theTarget%~
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_130~ BEGIN
-    SPRINT description @11300002 // ~Lance Bénédiction sur %theTarget%~
+	LPM ~opcode_130_common~
+	SPRINT description @11300002 // ~Lance Bénédiction (%value%) sur %theTarget%~
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_130~ BEGIN
-	LPM ~opcode_self_probability_130~ // ~de lancer Bénédiction sur %theTarget%~
+	LPM ~opcode_self_probability_130~ // ~de lancer Bénédiction (%value%) sur %theTarget%~
 END
+
+DEFINE_PATCH_MACRO ~opcode_130_common~ BEGIN
+	// Modifier only reads the first byte for its value, the last 3 bytes are ignored.
+	SET parameter1 = parameter1 BAND 255
+	LPF ~signed_value~ INT_VAR value = EVAL ~%parameter1%~ RET value END
+END
+
 
 /* --------------------------- *
  * State: Positive Chant [131] *

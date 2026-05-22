@@ -2731,9 +2731,9 @@
 
 // Opcode 130: State: Bless [130]
 
-@11300001 = ~Bénédiction~
-@11300002 = ~Lance Bénédiction sur %theTarget%~
-@11300003 = ~de lancer Bénédiction sur %theTarget%~
+@11300001 = ~Bénédiction (%value%)~
+@11300002 = ~Lance Bénédiction (%value%) sur %theTarget%~
+@11300003 = ~de lancer Bénédiction (%value%) sur %theTarget%~
 
 // Opcode 132: State: Raise Strength, Constitution, & Dexterity Non-Cumulative [132]
 
