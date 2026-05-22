@@ -2514,13 +2514,13 @@
 @11060002 = ~Morale %ofTheTarget% is strengthened by %value%~
 @11060003 = ~Morale %ofTheTarget% is weakened by %value%~
 @11060004 = ~Immunity to panic~
-@11060005 = ~Morale breakpoint %ofTheTarget% changes to %parameter1%~
+@11060005 = ~Morale breakpoint %ofTheTarget% changes to %value%~
 
 @11060006 = ~to keep morale %ofTheTarget% high~
 @11060007 = ~to boost morale %ofTheTarget% by %value%~
 @11060008 = ~decrease morale %ofTheTarget% by %value%~
 @11060009 = ~to immunize %theTarget% against morale breakdown~
-@11060010 = ~to increase morale breakpoint %ofTheTarget% to %parameter1%~
+@11060010 = ~to increase morale breakpoint %ofTheTarget% to %value%~
 
 // Opcode 108: Stat: Reputation [108]
 

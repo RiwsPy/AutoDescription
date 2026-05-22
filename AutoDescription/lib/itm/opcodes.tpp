@@ -5701,19 +5701,23 @@ END
  * Stat: Morale Break Modifier [106] *
  * --------------------------------- */
 DEFINE_PATCH_MACRO ~opcode_self_106~ BEGIN
-	// SET ignoreDuration = 1
 	PATCH_IF parameter2 == MOD_TYPE_flat BEGIN
+		SET value = parameter1
 		PATCH_IF parameter1 < 0 BEGIN
-			SET parameter1 = 0
+			SET value = 0
 		END
-		PATCH_IF parameter1 == 0 BEGIN
+		ELSE PATCH_IF parameter1 > 20 BEGIN
+			SET value = 20
+		END
+		PATCH_IF value == 0 BEGIN
+			// FIXME: différencier le nom de l'effet de l'opcode 24, Immunité contre la rupture de moral
 			SPRINT description @11060004 // ~Immunité à la panique~
 		END
-		ELSE PATCH_IF parameter1 == 1 BEGIN
+		ELSE PATCH_IF value == 1 BEGIN
 			SPRINT description @11060001 // ~Le moral %ofTheTarget% reste au plus haut~
 		END
 		ELSE BEGIN
-			SPRINT description @11060005 // ~Le point de rupture de moral %ofTheTarget% passe à %parameter1%~
+			SPRINT description @11060005 // ~Le point de rupture de moral %ofTheTarget% passe à %value%~
 		END
 	END
 	ELSE BEGIN
@@ -5731,19 +5735,22 @@ DEFINE_PATCH_MACRO ~opcode_self_106~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_106~ BEGIN
-	// SET ignoreDuration = 1
-	PATCH_IF parameter2 == MOD_TYPE_flat AND parameter1 <= 1 BEGIN
+	PATCH_IF parameter2 == MOD_TYPE_flat BEGIN
+		SET value = parameter1
 		PATCH_IF parameter1 < 0 BEGIN
-			SET parameter1 = 0
+			SET value = 0
 		END
-		PATCH_IF parameter1 == 0 BEGIN
+		ELSE PATCH_IF parameter1 > 20 BEGIN
+			SET value = 20
+		END
+		PATCH_IF value == 0 BEGIN
 			SPRINT description @11060009 // ~d'immuniser %theTarget% contre la rupture de moral~ // Immunité contre la rupture de moral~
 		END
-		ELSE PATCH_IF parameter1 == 1 BEGIN
+		ELSE PATCH_IF value == 1 BEGIN
 			SPRINT description @11060006 // ~de garder le moral %ofTheTarget% au plus haut~
 		END
 		ELSE BEGIN
-			SPRINT description @11060010 // ~de faire passer le point de rupture de moral %ofTheTarget% à %parameter1%~
+			SPRINT description @11060010 // ~de faire passer le point de rupture de moral %ofTheTarget% à %value%~
 		END
 	END
 	ELSE BEGIN
