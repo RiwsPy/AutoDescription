@@ -6862,16 +6862,19 @@ END
 DEFINE_PATCH_MACRO ~opcode_self_129~ BEGIN
 	LPM ~opcode_129_common~
     SPRINT description @11290001 // ~Aide (%value%)~
+	LPM ~opcode_not_cumulative~
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_129~ BEGIN
 	LPM ~opcode_129_common~
     SPRINT description @11290003 // ~de lancer Aide (%value%) sur %theTarget%~
+	LPM ~opcode_not_cumulative~
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_129~ BEGIN
 	LPM ~opcode_129_common~
     SPRINT description @11290002 // ~Lance Aide (%value%) sur %theTarget%~
+	LPM ~opcode_not_cumulative~
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_129~ BEGIN
@@ -6893,16 +6896,19 @@ END
 DEFINE_PATCH_MACRO ~opcode_self_130~ BEGIN
 	LPM ~opcode_130_common~
 	SPRINT description @11300001 // ~Bénédiction (%value%)~
+	LPM ~opcode_not_cumulative~
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_130~ BEGIN
 	LPM ~opcode_130_common~
 	SPRINT description @11300003 // ~de lancer Bénédiction (%value%) sur %theTarget%~
+	LPM ~opcode_not_cumulative~
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_130~ BEGIN
 	LPM ~opcode_130_common~
 	SPRINT description @11300002 // ~Lance Bénédiction (%value%) sur %theTarget%~
+	LPM ~opcode_not_cumulative~
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_130~ BEGIN
