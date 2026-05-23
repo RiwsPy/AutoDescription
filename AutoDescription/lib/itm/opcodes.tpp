@@ -11641,21 +11641,13 @@ END
  * Spell Effect: Attack Nearest Creature [247] *
  * ------------------------------------------- */
  DEFINE_PATCH_MACRO ~opcode_self_247~ BEGIN
-	PATCH_IF parameter2 != 0 BEGIN
-		LPM ~opcode_self_3~
-	END
-	ELSE BEGIN
-		SPRINT description @12470001 // ~Apaise %theTarget%~
-	END
+	LPM ~opcode_247_condition~
+	SPRINT description @12470001 // ~Provoque la rage du berserker chez %theTarget%~
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_247~ BEGIN
-	PATCH_IF parameter2 != 0 BEGIN
-		LPM ~opcode_self_probability_3~
-	END
-	ELSE BEGIN
-		SPRINT description @12470002 // d'apaiser %theTarget%
-	END
+	LPM ~opcode_247_condition~
+	SPRINT description @12470002 // ~de provoquer la rage du berserker chez %theTarget%~
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_247~ BEGIN
@@ -11664,6 +11656,12 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_247~ BEGIN
 	LPM ~opcode_self_probability_247~
+END
+
+DEFINE_PATCH_MACRO ~opcode_247_condition~ BEGIN
+	PATCH_IF parameter2 == 0 BEGIN
+		SPRINT condition @12470003 // En combat
+	END
 END
 
 /* ---------------------------- *

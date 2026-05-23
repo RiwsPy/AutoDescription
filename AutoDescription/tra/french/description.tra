@@ -3413,8 +3413,9 @@
 
 // Opcode 247: Spell Effect: Attack Nearest Creature [247]
 
-@12470001 = ~Apaise %theTarget%~
-@12470002 = ~d'apaiser %theTarget%~
+@12470001 = ~Provoque la folie du berserker chez %theTarget%~
+@12470002 = ~de provoquer la folie du berserker chez %theTarget%~
+@12470003 = ~En combat~
 
 // Opcode 248: Item: Set Melee Effect [248]
 

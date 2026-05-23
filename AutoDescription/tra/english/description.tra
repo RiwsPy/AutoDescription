@@ -3378,8 +3378,9 @@
 
 // Opcode 247: Spell Effect: Attack Nearest Creature [247]
 
-@12470001 = ~Appease %theTarget%~
-@12470002 = ~to appease %theTarget%~
+@12470001 = ~Causes %theTarget% to go berserk~
+@12470002 = ~of causing %theTarget% to go berserk~
+@12470003 = ~In combat~
 
 // Opcode 248: Item: Set Melee Effect [248]
 
