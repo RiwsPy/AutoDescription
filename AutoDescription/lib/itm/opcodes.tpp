@@ -15908,11 +15908,21 @@ DEFINE_PATCH_FUNCTION ~get_spell_name~ INT_VAR showWarning = 1 STR_VAR file = ""
 END
 
 DEFINE_PATCH_FUNCTION ~get_spell_school~ INT_VAR school = 0 opcode = 0 RET spellSchoolName BEGIN
+	// TODO: améliorer la gestion
+	PATCH_IF school < 0 OR school > 10 BEGIN
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode% : ecole non geree : %school%~ END
+		SET school = 0
+	END
 	SET strref = 100100 + school
 	LPF ~getTranslation~ INT_VAR strref opcode RET spellSchoolName = string END
 END
 
 DEFINE_PATCH_FUNCTION ~get_spell_school_name~ INT_VAR school = 0 opcode = 0 RET spellSchoolName BEGIN
+	// TODO: améliorer la gestion
+	PATCH_IF school < 0 OR school > 10 BEGIN
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode% : ecole non geree : %school%~ END
+		SET school = 0
+	END
 	SET strref = 100120 + school
 	LPF ~getTranslation~ INT_VAR strref opcode RET spellSchoolName = string END
 END
