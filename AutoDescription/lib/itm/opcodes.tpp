@@ -11295,12 +11295,12 @@ END
  * Spell Effect: Wing Buffet [235] *
  * ------------------------------- */
 DEFINE_PATCH_MACRO ~opcode_self_235~ BEGIN
-	LOCAL_SET strref = 12350000
+	LOCAL_SET strref = 12350001 // ~Repousse %theTarget% à %range% de l'endroit visé~
 	LPM ~opcode_235_common~
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_235~ BEGIN
-	LOCAL_SET strref = 12350004
+	LOCAL_SET strref = 12350005 // ~de repousser %theTarget% à %range% %ofTheSource%~
 	LPM ~opcode_235_common~
 END
 
@@ -11313,7 +11313,7 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_235~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_235_common~ BEGIN
-	SET strref += parameter2 > 4 OR parameter2 < 1 ? 1 : parameter2
+	SET strref += parameter2 > 4 OR parameter2 < 1 ? 0 : parameter2 - 1
     LPF ~feets_to_meters~ INT_VAR range = parameter1 RET range = rangeToMeter END
 	SPRINT description (AT strref)
 END
