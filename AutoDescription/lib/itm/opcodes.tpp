@@ -14348,6 +14348,7 @@ END
 /* ------------------------------- *
  * Spell Effect: Slow Poison [329] *
  * ------------------------------- */
+// FIXME: n'abaisse pas forcément la virulence puisqu'elle écrase le multiplicateur initial de fréquence (souvent à 1, mais pas obligatoirement)
 DEFINE_PATCH_MACRO ~opcode_self_329~ BEGIN
 	LOCAL_SET amount = parameter1
 	SPRINT description @13290001 // ~Abaissement de la virulence de la plupart des poisons de %amount%~
@@ -14368,9 +14369,9 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_329~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_329_is_valid~ BEGIN
-	PATCH_IF parameter1 == 0 OR parameter1 == 1 BEGIN
+	PATCH_IF parameter1 == 0 BEGIN
 		SET isValid = 0
-		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode% : Slow Factor == %parameter1% (>= 2 expected).~ END
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode% : With parameter1 == %parameter1%, the game may crash.~ END
 	END
 END
 
