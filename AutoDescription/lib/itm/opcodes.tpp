@@ -10304,7 +10304,6 @@ DEFINE_PATCH_MACRO ~opcode_214_common~ BEGIN
 		END
 	END
 	ELSE BEGIN
-		//TODO: IF ee ajouter sauf SPWI110 et SPWI124 ?
         SPRINT description (AT strref) // ~Permet de lancer un sort du livre de sorts~
 	END
 END
@@ -10319,21 +10318,21 @@ END
  * Spell Effect: Level Drain [216] *
  * ------------------------------- */
 DEFINE_PATCH_MACRO ~opcode_self_216~ BEGIN
-	SET strref = 12160001
+	SET strref = 12160001 // ~Draine 1 niveau %toTheTarget%~
 	LPM ~opcode_216_common~
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_216~ BEGIN
-	SET strref = 12160011
+	SET strref = 12160011 // ~de drainer 1 niveau %toTheTarget%~
 	LPM ~opcode_216_common~
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_216~ BEGIN
-	LPM ~opcode_self_216~ // ~Draîne 1 niveau %toTheTarget%~
+	LPM ~opcode_self_216~
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_216~ BEGIN
-	LPM ~opcode_self_probability_216~ // ~de drainer 1 niveau %toTheTarget%~
+	LPM ~opcode_self_probability_216~
 END
 
 DEFINE_PATCH_MACRO ~opcode_216_common~ BEGIN
@@ -11284,6 +11283,7 @@ DEFINE_PATCH_MACRO ~opcode_233_is_valid~ BEGIN
 		SET isValid = 0
 		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: No change detected. Proficiency %stat% += 0~ END
 	END
+	// FIXME: pas commun de voir cet appel dans is_valid, d'autant plus qu'il est à nouveau appelé dans les autres méthodes
 	LPM ~opcode_233_common~
 
 	PATCH_IF NOT VARIABLE_IS_SET $tra_proficiencies(~%parameter2%~) BEGIN
@@ -13509,7 +13509,6 @@ END
  * Stat: Turn Undead Level [323] *
  * ----------------------------- */
 
-// TODO : à vérifier : pas de MOD_TYPE_percent dans 2.5.16
 // FIXME: special != 0 : P1 = P1 + niveau de la classe la plus élevée
 DEFINE_PATCH_MACRO ~opcode_self_323~ BEGIN
 	LPF ~opcode_mod~ INT_VAR strref = 13230001 STR_VAR value = ~%parameter1%~ complex_value RET description END // ~Niveau de repousser les morts-vivants~
@@ -14380,7 +14379,6 @@ END
 /* -------------------------------------- *
  * Summon: Random Monster Summoning [331] *
  * -------------------------------------- */
-// FIXME: pas de test possible en 2.5.16
 DEFINE_PATCH_MACRO ~opcode_self_331~ BEGIN
 	LOCAL_SET strref = 13310001 // ~Invoque des créatures pour un total de %amount% niveaux (%creatures%)~
 	LPM ~opcode_331_common~
