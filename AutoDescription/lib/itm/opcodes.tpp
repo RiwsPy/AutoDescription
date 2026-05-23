@@ -1264,7 +1264,7 @@ DEFINE_PATCH_MACRO ~opcode_1_common~ BEGIN
 		END
 	END
 
-	PATCH_IF value == 0 AND (parameter2 == MOD_TYPE_flat OR parameter2 == MOD_TYPE_percentage OR parameter2 == 3) BEGIN
+	PATCH_IF parameter1 <= 0 AND (parameter2 == MOD_TYPE_flat OR parameter2 == MOD_TYPE_percentage OR parameter2 == 3) BEGIN
 		SET strref += 4 // ~Attaque impossible~
 	END
 	ELSE BEGIN
