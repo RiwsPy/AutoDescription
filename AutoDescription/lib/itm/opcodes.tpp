@@ -10149,7 +10149,6 @@ END
  * Spell Effect: Stun 90HP [210] *
  * ----------------------------- */
 DEFINE_PATCH_MACRO ~opcode_self_210~ BEGIN
-	//TODO: Ajouter la durée ?
 	// 1 to 29 HP ⟶ stunned for 4d4 rounds
     // 30 to 59 HP ⟶ stunned for 2d4 rounds
     // 60 to 89 HP ⟶ stunned for 1d4 rounds
@@ -11531,7 +11530,7 @@ DEFINE_PATCH_MACRO ~opcode_243_common~ BEGIN
 	LOCAL_SET amount = parameter1
 	PATCH_IF is_ee == 1 BEGIN
 		// TODO: ? You can drain charges of a particular item if the resource field is used
-		// Inexistant en 2.5.16
+		// Inexistant en 2.5.16, pas vu en 2.6
 		PATCH_IF amount != 1 BEGIN
 			SET strref += 1 // ~Draine %amount% charges aux objets magiques %ofTheTarget%~
 		END
@@ -13021,6 +13020,7 @@ END
 /* --------------------------------- *
  *  Spell Effect: Chaos Shield [299] *
  * --------------------------------- */
+// TODO: une valeur <= 0 annule le blocage
 DEFINE_PATCH_MACRO ~opcode_self_299~ BEGIN
 	LOCAL_SET amount = parameter1
 	SPRINT description @12990001 // ~Bloque %amount% hiatus entropiques~
@@ -13044,7 +13044,7 @@ END
 /* -------------- *
  * NPC Bump [300] *
  * -------------- */
-// TODO: à vérifier
+// FIXME: à compléter
 DEFINE_PATCH_MACRO ~opcode_self_300~ BEGIN
 	PATCH_IF parameter2 > 0 BEGIN
 		SET strref = 13000000 + parameter2
