@@ -13168,6 +13168,10 @@ DEFINE_PATCH_MACRO ~opcode_self_303~ BEGIN
 		SPRINT description @13030001 // ~Bloque la capacité à infliger des dégâts sournois à chaque attaque~
 	END
 	ELSE BEGIN
+		// BIT0 inactif et (BIT1 ou BIT2 inactif)
+		PATCH_IF (parameter2 & 1 == 0) AND (parameter2 & 2 == 0 OR parameter2 & 4 == 0) BEGIN
+			LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: value %parameter2% : non gere.~ END
+		END
 		SPRINT description @13030011 // ~Transforme toute attaque portée en attaque sournoise (si l'arme équipée l'autorise)~
 	END
 END
@@ -13177,6 +13181,10 @@ DEFINE_PATCH_MACRO ~opcode_self_probability_303~ BEGIN
 		SPRINT description @13030003 // ~de bloquer la capacité %ofTheTarget% à infliger des dégâts sournois à chaque attaque~
 	END
 	ELSE BEGIN
+		// BIT0 inactif et (BIT1 ou BIT2 inactif)
+		PATCH_IF (parameter2 & 1 == 0) AND (parameter2 & 2 == 0 OR parameter2 & 4 == 0) BEGIN
+			LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: value %parameter2% : non gere.~ END
+		END
 		SPRINT description @13030013 // ~de transformer toute attaque portée par %theTarget% en attaque sournoise (si l'arme équipée l'autorise)~
 	END
 END
@@ -13186,6 +13194,10 @@ DEFINE_PATCH_MACRO ~opcode_target_303~ BEGIN
 		SPRINT description @13030002 // ~Bloque la capacité %ofTheTarget% à infliger des dégâts sournois à chaque attaque~
 	END
 	ELSE BEGIN
+		// BIT0 inactif et (BIT1 ou BIT2 inactif)
+		PATCH_IF (parameter2 & 1 == 0) AND (parameter2 & 2 == 0 OR parameter2 & 4 == 0) BEGIN
+			LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: value %parameter2% : non gere.~ END
+		END
 		SPRINT description @13030012 // ~Transforme toute attaque portée par %theTarget% en attaque sournoise (si l'arme équipée l'autorise)~
 	END
 END
