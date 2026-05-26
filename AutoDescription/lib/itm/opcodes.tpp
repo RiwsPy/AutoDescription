@@ -2205,7 +2205,6 @@ END
 /* ------------------------ *
  * State: Invisibility [20] *
  * ------------------------ */
- // TODO: parameter2 == 2 (EE)
 DEFINE_PATCH_MACRO ~opcode_self_20~ BEGIN
 	PATCH_IF parameter2 == 0 BEGIN
 		SPRINT description @10200001 // ~Invisibilité~
@@ -2265,6 +2264,14 @@ DEFINE_PATCH_MACRO ~opcode_20_group~ BEGIN
 		END
 	END
 END
+
+DEFINE_PATCH_MACRO ~opcode_20_is_valid~ BEGIN
+	 // TODO
+	PATCH_IF is_ee AND parameter2 != 0 AND parameter2 != 1 BEGIN
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: Type %parameter2% incomplet.~ END
+	END
+END
+
 
 /* ------------------------ *
  * Stat: Lore Modifier [21] *
