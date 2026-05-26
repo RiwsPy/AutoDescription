@@ -13033,25 +13033,40 @@ END
 /* --------------------------------- *
  *  Spell Effect: Chaos Shield [299] *
  * --------------------------------- */
-// TODO: une valeur <= 0 annule le blocage
 DEFINE_PATCH_MACRO ~opcode_self_299~ BEGIN
 	LOCAL_SET amount = parameter1
-	SPRINT description @12990001 // ~Bloque %amount% hiatus entropiques~
+	PATCH_IF amount >= 1 BEGIN
+		SPRINT description @12990001 // ~Bloque %amount% hiatus entropiques~
+	ELSE BEGIN
+		SPRINT description @12990011 // ~Dissipe le blocage des prochains hiatus entropiques~
+	END
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_299~ BEGIN
 	LOCAL_SET amount = parameter1
-	SPRINT description @12990002 // ~Bloque %amount% hiatus entropiques %ofTheTarget%~
+	PATCH_IF amount >= 1 BEGIN
+		SPRINT description @12990002 // ~Bloque %amount% hiatus entropiques %ofTheTarget%~
+	ELSE BEGIN
+		SPRINT description @12990012 // ~Dissipe le blocage des prochains hiatus entropiques %ofTheTarget%~
+	END
 END
 
 DEFINE_PATCH_MACRO ~opcode_self_probability_299~ BEGIN
 	LOCAL_SET amount = parameter1
-	SPRINT description @12990003 // ~de bloquer %amount% hiatus entropiques~
+	PATCH_IF amount >= 1 BEGIN
+		SPRINT description @12990003 // ~de bloquer %amount% hiatus entropiques~
+	ELSE BEGIN
+		SPRINT description @12990013 // ~de dissiper le blocage des prochains hiatus entropiques~
+	END
 END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_299~ BEGIN
 	LOCAL_SET amount = parameter1
-	SPRINT description @12990004 // ~de bloquer %amount% hiatus entropiques %ofTheTarget%~
+	PATCH_IF amount >= 1 BEGIN
+		SPRINT description @12990004 // ~de bloquer %amount% hiatus entropiques %ofTheTarget%~
+	ELSE BEGIN
+		SPRINT description @12990014 // ~de dissiper le blocage des prochains hiatus entropiques %ofTheTarget%~
+	END
 END
 
 /* -------------- *

@@ -3638,6 +3638,12 @@
 @12990003 = ~de bloquer les %amount% prochains hiatus entropiques~
 @12990004 = ~de bloquer les %amount% prochains hiatus entropiques %ofTheTarget%~
 
+@12990011 = ~Dissipe le blocage des prochains hiatus entropiques~
+@12990012 = ~Dissipe le blocage des prochains hiatus entropiques %ofTheTarget%~
+@12990013 = ~de dissiper le blocage des prochains hiatus entropiques~
+@12990014 = ~de dissiper le blocage des prochains hiatus entropiques %ofTheTarget%~
+
+
 // Opcode 300: NPC Bump [300]
 
 @13000001 = ~Permet %toTheTarget% de bousculer les créatures sur son passage~
