@@ -2761,9 +2761,11 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_33~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_33_is_valid~ BEGIN
-	// TODO: ajouter un warning pour les moddeurs sur l'opcode 33 + type 3 qui est partiellement bug
 	PATCH_IF is_ee BEGIN
 		LPM ~opcode_modstat3_is_valid~
+		PATCH_IF opcode == 33 AND parameter2 == 3 AND !has_eeex BEGIN
+			LPF ~add_log_warning~ STR_VAR message = EVAL ~Opcode %opcode% : Type %parameter2% partially buggy. Use Type 0 instead or install EEex.~ END
+		END
 	END
 	ELSE BEGIN
 		LPM ~opcode_modstat2_is_valid~
