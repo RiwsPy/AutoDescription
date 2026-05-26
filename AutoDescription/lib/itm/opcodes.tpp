@@ -13087,8 +13087,6 @@ END
 /* --------------------------------- *
  * Stat: Critical Hit Modifier [301] *
  * --------------------------------- */
-// TODO: tester les valeurs : special > 3
-
 DEFINE_PATCH_MACRO ~opcode_self_301~ BEGIN
 	LOCAL_SET nameStrref = 13010001 // ~Chance de coup critique~
 	LOCAL_SET value = 5 * parameter1
@@ -13128,7 +13126,7 @@ DEFINE_PATCH_MACRO ~opcode_301_common~ BEGIN
 	SPRINT name (AT nameStrref)
 
 	PATCH_IF is_ee == 1 AND parameter2 != 0 BEGIN
-		//TODO : restriction du type d'arme si parameter2 != 0 (cela a-t-il un sens ?)
+		// TODO
 		PATCH_IF isExternal AND parameter3 != 0 BEGIN
 			LPF ~add_log_warning~ STR_VAR message = EVAL ~Opcode %opcode%: Condition %parameter2% et Weapon Category %parameter3% non gere~ END
 		END
@@ -13157,6 +13155,21 @@ DEFINE_PATCH_MACRO ~opcode_301_target_common~ BEGIN
 	END
     SPRINT value @10002 // ~%value% %~
     SPRINT description (AT desStrref)
+END
+
+DEFINE_PATCH_MACRO ~opcode_301_is_valid~ BEGIN
+	PATCH_IF is_ee AND special < 0 OR special > 3 BEGIN
+		isValid = 0
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode% : Invalid AttackType %special%.~ END
+	END
+	PATCH_IF is_ee AND isExternal AND (parameter3 < 0 OR parameter3 > 73) BEGIN
+		isValid = 0
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode% : Invalid Item Type %parameter3%.~ END
+	END
+	PATCH_IF is_ee AND parameter1 == 0 AND (opcode == 301 OR opcode == 362) BEGIN
+		isValid = 0
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode% : No change detected: Modifier == %parameter1%.~ END
+	END
 END
 
 /* ---------------------------- *
@@ -14818,7 +14831,7 @@ DEFINE_PATCH_MACRO ~opcode_341_common~ BEGIN
 		TEXT_SPRINT condition ~%condition% %strref%~
 	END
 	ELSE PATCH_IF parameter2 != 0 BEGIN
-		//TODO : restriction du type d'arme si parameter2 != 0 (cela a-t-il un sens ?)
+		// TODO
 		PATCH_IF isExternal AND parameter3 != 0 BEGIN
 			LPF ~add_log_warning~ STR_VAR message = EVAL ~Opcode %opcode%: Condition %parameter2% et Weapon Category %parameter3% non gere~ END
 		END
@@ -14842,6 +14855,7 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_341_is_valid~ BEGIN
 	LPM ~opcode_resref_is_valid~
+	LPM ~opcode_301_is_valid~
 END
 
 /* ------------- *
@@ -15043,6 +15057,7 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_361_is_valid~ BEGIN
 	LPM ~opcode_resref_is_valid~
+	LPM ~opcode_301_is_valid~
 END
 
 /* ------------------------- *
@@ -15077,6 +15092,10 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_362~ BEGIN
 	LPM ~opcode_self_probability_362~
+END
+
+DEFINE_PATCH_MACRO ~opcode_362_is_valid~ BEGIN
+	LPM ~opcode_301_is_valid~
 END
 
 /* ------------------------ *
