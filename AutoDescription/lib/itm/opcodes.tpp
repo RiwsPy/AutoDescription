@@ -5842,7 +5842,6 @@ END
 /* ----------------- *
  * State: Hold [109] *
  * ----------------- */
-// TODO: 109 special
 DEFINE_PATCH_MACRO ~opcode_self_109~ BEGIN
 	LPM ~opcode_109_common~
 	SPRINT description @11090002 // ~Paralyse %theTarget%~
@@ -5880,9 +5879,14 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_109~ BEGIN
 END
 
 DEFINE_PATCH_MACRO ~opcode_109_common~ BEGIN
-	PATCH_IF opcode == 109 AND (parameter2 < 2 OR parameter2 > 9) BEGIN
+	PATCH_IF opcode == 109 AND (parameter2 < 2 OR parameter2 > 9 OR (parameter2 > 8 AND NOT is_ee)) BEGIN
 		// Fonctionnel mais inhabituel (et non documenté)
 		LPF ~add_log_warning~ STR_VAR message = EVAL ~Opcode %opcode%: Unknown type %parameter2%.~ END
+		SET parameter2 = 2
+		SET parameter1 = 0
+	END
+	PATCH_IF opcode == 109 AND special != 0 AND is_ee BEGIN
+		LPF ~add_log_error~ STR_VAR message = EVAL ~Opcode %opcode%: Unknown special %special%.~ END
 		SET parameter2 = 2
 		SET parameter1 = 0
 	END
