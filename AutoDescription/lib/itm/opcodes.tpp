@@ -1338,6 +1338,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_2~ BEGIN
 	LPM ~opcode_self_probability_2~ // ~de réveiller %theTarget%~
 END
 
+DEFINE_PATCH_MACRO ~opcode_2_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* --------------------- *
  * State: Berserking [3] *
  * --------------------- */
@@ -1382,6 +1389,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_4~ BEGIN
 	LPM ~opcode_self_probability_4~ // ~d'apaiser %theTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_4_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ---------------------------------- *
@@ -1514,6 +1528,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_11~ BEGIN
 	LPM ~opcode_self_probability_11~
+END
+
+DEFINE_PATCH_MACRO ~opcode_11_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* --------------- *
@@ -1789,6 +1810,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_14~ BEGIN
 	LPM ~opcode_self_probability_14~
+END
+
+DEFINE_PATCH_MACRO ~opcode_14_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ----------------------------- *
@@ -2581,6 +2609,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_26~ BEGIN
 	LPM ~opcode_self_probability_26~ // ~de délivrer %theTarget% des malédictions~
 END
 
+DEFINE_PATCH_MACRO ~opcode_26_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ----------------------------------- *
  * Stat: Acid Resistance Modifier [27] *
  * ----------------------------------- */
@@ -2917,6 +2952,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_38~ BEGIN
 	LPM ~opcode_self_probability_38~ // ~de réduire %theTarget% au silence~
 END
 
+DEFINE_PATCH_MACRO ~opcode_38_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* --------------------------- *
  * State: Unconsciousness [39] *
  * --------------------------- */
@@ -2966,6 +3008,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_40~ BEGIN
 	LPM ~opcode_self_probability_40~ // ~d'infliger lenteur %toTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_40_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* --------------------------------------- *
@@ -3066,6 +3115,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_43~ BEGIN
 	LPM ~opcode_self_probability_43~ // ~de dépétrifier %theTarget%~
 END
 
+DEFINE_PATCH_MACRO ~opcode_43_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ---------------------------- *
  * Stat: Strength Modifier [44] *
  * ---------------------------- */
@@ -3113,6 +3169,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_45~ BEGIN
 	LPM ~opcode_self_probability_45~
 END
 
+DEFINE_PATCH_MACRO ~opcode_45_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------ *
  * Cure: Stun (Unstun) [46] *
  * ------------------------ */
@@ -3130,6 +3193,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_46~ BEGIN
 	LPM ~opcode_self_probability_46~ // ~de ranimer %theTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_46_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ----------------------- *
@@ -3151,6 +3221,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_47~ BEGIN
 	LPM ~opcode_self_probability_47~ // ~de dissiper l'invisibilité %ofTheTarget%~
 END
 
+DEFINE_PATCH_MACRO ~opcode_47_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ----------------------------- *
  * Cure: Silence (Vocalize) [48] *
  * ----------------------------- */
@@ -3168,6 +3245,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_48~ BEGIN
 	LPM ~opcode_self_probability_48~ // ~de rendre la parole %toTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_48_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* -------------------------- *
@@ -3278,6 +3362,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_56~ BEGIN
 	LPM ~opcode_self_probability_56~ // ~d'inverser l'alignement %ofTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_56_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ---------------------- *
@@ -3639,6 +3730,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_63~ BEGIN
 	SPRINT description @10630031 // ~d'octroyer la capacité d'infravision %toTheTarget% ~
 END
 
+DEFINE_PATCH_MACRO ~opcode_63_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------------ *
  * State: Remove Infravision [64] *
  * ------------------------------ */
@@ -3656,6 +3754,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_64~ BEGIN
 	LPM ~opcode_self_probability_64~ // ~de neutraliser l'infravision %ofTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_64_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ------------------------------- *
@@ -3839,6 +3944,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_69~ BEGIN
 	LPM ~opcode_self_probability_69~ // ~de lancer non-détection sur %theTarget%~
 END
 
+DEFINE_PATCH_MACRO ~opcode_69_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------ *
  * Cure: Non-Detection [70] *
  * ------------------------ */
@@ -3856,6 +3968,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_70~ BEGIN
 	SPRINT description @10700003 // ~de dissiper la non-détection %ofTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_70_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* --------------- *
@@ -3945,6 +4064,11 @@ DEFINE_PATCH_MACRO ~opcode_74_is_valid~ BEGIN
 	END
 END
 
+DEFINE_PATCH_MACRO ~opcode_74_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	SET match_parameter1 = parameter1
+END
+
 /* -------------------- *
  * Cure: Blindness [75] *
  * -------------------- */
@@ -3962,6 +4086,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_75~ BEGIN
 	LPM ~opcode_self_probability_75~ // ~de guérir la cécité %ofTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_75_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* --------------------------- *
@@ -3983,6 +4114,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_76~ BEGIN
 	LPM ~opcode_self_probability_76~ // ~d'infliger Débilité mentale %toTheTarget%~
 END
 
+DEFINE_PATCH_MACRO ~opcode_76_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* --------------------------- *
  * Cure: Feeblemindedness [77] *
  * --------------------------- */
@@ -4000,6 +4138,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_77~ BEGIN
 	LPM ~opcode_self_probability_77~ // ~de guérir la Débilité mentale %ofTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_77_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ------------------- *
@@ -4177,6 +4322,13 @@ DEFINE_PATCH_MACRO ~opcode_79_group~ BEGIN
 	END
 END
 
+DEFINE_PATCH_MACRO ~opcode_79_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------- *
  * Deafness [80] *
  * ------------- */
@@ -4221,6 +4373,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_80~ BEGIN
 	LPM ~opcode_self_probability_80~ // @~d'assourdir %theTarget%~
 END
 
+DEFINE_PATCH_MACRO ~opcode_80_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------- *
  * Cure: Deafness [81] *
  * ------------------- */
@@ -4238,6 +4397,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_81~ BEGIN
 	LPM ~opcode_self_probability_81~ // ~de guérir la surdité %ofTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_81_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* -------------------------------- *
@@ -6258,6 +6424,13 @@ DEFINE_PATCH_MACRO ~opcode_116_is_valid~ BEGIN
 	LPM ~opcode_47_is_valid~
 END
 
+DEFINE_PATCH_MACRO ~opcode_116_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------------- *
  * Spell Effect: Reveal Area [117] *
  * ------------------------------- */
@@ -6275,6 +6448,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_117~ BEGIN
 	LPM ~opcode_self_probability_117~
+END
+
+DEFINE_PATCH_MACRO ~opcode_117_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* -------------------------------- *
@@ -6298,7 +6478,7 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_119_spell_level_match~ BEGIN
 	// Parameter #1: Irrelevant
-    // Parameter #2: Irrelevant
+	// Parameter #2: Irrevelant
 	SET match_parameter1 = parameter1
 	SET match_parameter2 = parameter2
 END
@@ -6560,6 +6740,13 @@ DEFINE_PATCH_MACRO ~opcode_123_is_valid~ BEGIN
 	LPM ~opcode_resref_is_valid~
 END
 
+DEFINE_PATCH_MACRO ~opcode_123_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 
 /* --------------------------------------------- *
  * Spell Effect: Teleport (Dimension Door) [124] *
@@ -6621,6 +6808,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_125~ BEGIN
 	SPRINT description @11250002 // ~de déverrouiller la serrure ciblée~
+END
+
+DEFINE_PATCH_MACRO ~opcode_125_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ----------------------------- *
@@ -6868,6 +7062,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_128~ BEGIN
     LPM ~opcode_self_probability_128~ // ~d'infliger Confusion à la cible~
 END
 
+DEFINE_PATCH_MACRO ~opcode_128_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ---------------- *
  * State: Aid [129] *
  * ---------------- */
@@ -6902,6 +7103,11 @@ DEFINE_PATCH_MACRO ~opcode_129_common~ BEGIN
 	LPF ~signed_value~ INT_VAR value = EVAL ~%parameter1%~ RET value END
 END
 
+DEFINE_PATCH_MACRO ~opcode_129_spell_level_match~ BEGIN
+	// Parameter #2: Irrevelant
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------ *
  * State: Bless [130] *
  * ------------------ */
@@ -6934,6 +7140,11 @@ DEFINE_PATCH_MACRO ~opcode_130_common~ BEGIN
 	LPF ~signed_value~ INT_VAR value = EVAL ~%parameter1%~ RET value END
 END
 
+DEFINE_PATCH_MACRO ~opcode_130_spell_level_match~ BEGIN
+	// Parameter #2: Irrevelant
+	SET match_parameter2 = parameter2
+END
+
 
 /* --------------------------- *
  * State: Positive Chant [131] *
@@ -6961,6 +7172,11 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_131~ BEGIN
 	SET parameter1 = parameter1 < 0 ? parameter1 : parameter1 BAND 255
     LPM ~opcode_target_probability_22~ // ~la chance~
     LPM ~opcode_not_cumulative~
+END
+
+DEFINE_PATCH_MACRO ~opcode_131_spell_level_match~ BEGIN
+	// Parameter #2: Irrevelant
+	SET match_parameter2 = parameter2
 END
 
 /* --------------------------------------------------------------------- *
@@ -6997,6 +7213,11 @@ DEFINE_PATCH_MACRO ~opcode_132_common~ BEGIN
 	END
 END
 
+DEFINE_PATCH_MACRO ~opcode_132_spell_level_match~ BEGIN
+	// Parameter #2: Irrevelant
+	SET match_parameter2 = parameter2
+END
+
 /* --------------------------------------- *
  * Spell Effect: Luck Non-Cumulative [133] *
  * --------------------------------------- */
@@ -7016,6 +7237,11 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_133~ BEGIN
 	LPM ~opcode_target_probability_131~
 END
 
+DEFINE_PATCH_MACRO ~opcode_133_spell_level_match~ BEGIN
+	// Parameter #2: Irrevelant
+	SET match_parameter2 = parameter2
+END
+
 /* -------------------------- *
  * State: Petrification [134] *
  * -------------------------- */
@@ -7033,6 +7259,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_134~ BEGIN
 	SPRINT description @11340004 // ~de pétrifier %theTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_134_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ----------------------------- *
@@ -7696,6 +7929,13 @@ DEFINE_PATCH_MACRO ~opcode_147_is_valid~ BEGIN
 	LPM ~opcode_resref_is_valid~
 END
 
+DEFINE_PATCH_MACRO ~opcode_147_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ---------------------------------- *
  * Spell: Cast Spell (at Point) [148] *
  * ---------------------------------- */
@@ -7736,6 +7976,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_150~ BEGIN
 	SPRINT description @11500004 // ~que %theTarget% détecte les pièges~
+END
+
+DEFINE_PATCH_MACRO ~opcode_150_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ------------------------------ *
@@ -7998,6 +8245,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_160~ BEGIN
 	LPM ~opcode_self_probability_160~
 END
 
+DEFINE_PATCH_MACRO ~opcode_160_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------ *
  * Cure: Horror [161] *
  * ------------------ */
@@ -8015,6 +8269,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_161~ BEGIN
 	LPM ~opcode_self_probability_161~ // ~de dissiper l'horreur %ofTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_161_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ---------------- *
@@ -8036,6 +8297,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_162~ BEGIN
 	LPM ~opcode_self_probability_162~ // ~de guérir la paralysie %ofTheTarget%~
 END
 
+DEFINE_PATCH_MACRO ~opcode_162_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ----------------------------- *
  * Protection: Free Action [163] *
  * ----------------------------- */
@@ -8053,6 +8321,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_163~ BEGIN
 	LPM ~opcode_self_probability_163~ // ~de rétablir la vitesse de déplacement %ofTheTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_163_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ---------------------- *
@@ -8074,6 +8349,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_164~ BEGIN
 	LPM ~opcode_self_probability_164~ // ~de dessoûler %theTarget%~
 END
 
+DEFINE_PATCH_MACRO ~opcode_164_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* -------------------------------- *
  * Spell Effect: Pause Target [165] *
  * -------------------------------- */
@@ -8091,6 +8373,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_165~ BEGIN
 	SPRINT description @11650004 // ~de faire entrer %theTarget% dans un combat mental~
+END
+
+DEFINE_PATCH_MACRO ~opcode_165_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ------------------------------------- *
@@ -8200,6 +8489,13 @@ DEFINE_PATCH_MACRO ~opcode_171_common~ BEGIN
 	END
 END
 
+DEFINE_PATCH_MACRO ~opcode_171_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------- *
  * Spell: Remove Spell [172] *
  * ------------------------- */
@@ -8290,6 +8586,13 @@ DEFINE_PATCH_MACRO ~opcode_172_group~ BEGIN
 			END
 		END
 	END
+END
+
+DEFINE_PATCH_MACRO ~opcode_172_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* -------------------------------------- *
@@ -9407,6 +9710,13 @@ DEFINE_PATCH_MACRO ~opcode_self_196~ BEGIN
 	SPRINT description @11960001 // ~Empêche l'invocation du familier~
 END
 
+DEFINE_PATCH_MACRO ~opcode_196_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------------ *
  * Spell: Bounce Projectile [197] *
  * ------------------------------ */
@@ -10071,7 +10381,7 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_206_spell_level_match~ BEGIN
 	// Parameter #1: String Reference (sans importance pour AutoDescription)
-    // Parameter #2: Irrelevant
+	// Parameter #2: Irrevelant
 	SET match_parameter1 = parameter1
 	SET match_parameter2 = parameter2
 END
@@ -10087,6 +10397,13 @@ END
 DEFINE_PATCH_MACRO ~opcode_self_probability_207~ BEGIN
 	LPF ~get_spell_name~ STR_VAR file = EVAL ~%resref%~ RET spellName END
 	SPRINT description @12070002 // ~de renvoyer le sort %spellName%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_207_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ----------------------- *
@@ -10158,6 +10475,13 @@ DEFINE_PATCH_MACRO ~opcode_209_is_valid~ BEGIN
 	END
 END
 
+DEFINE_PATCH_MACRO ~opcode_209_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ----------------------------- *
  * Spell Effect: Stun 90HP [210] *
  * ----------------------------- */
@@ -10178,6 +10502,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_210~ BEGIN
 	LPM ~opcode_self_probability_210~
+END
+
+DEFINE_PATCH_MACRO ~opcode_210_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* -------------------------------- *
@@ -10212,6 +10543,13 @@ DEFINE_PATCH_MACRO ~opcode_211_group~ BEGIN
 	END
 END
 
+DEFINE_PATCH_MACRO ~opcode_211_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------ *
  * Protection: Freedom [212] *
  * ------------------------ */
@@ -10225,6 +10563,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_212~ BEGIN
 	LPM ~opcode_self_probability_212~ // ~de libérer %theTarget% des effets de l'emprisonnement et du labyrinthe~
+END
+
+DEFINE_PATCH_MACRO ~opcode_212_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ------------------------ *
@@ -10792,6 +11137,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_224~ BEGIN
 	LPM ~opcode_self_probability_224~
 END
 
+DEFINE_PATCH_MACRO ~opcode_224_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------------------------------------- *
  * Spell: Immunity (by Secondary Type, decrementing) [226] *
  * ------------------------------------------------------- */
@@ -11003,6 +11355,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_231~ BEGIN
 	LPM ~opcode_self_probability_231~ // ~de lancer Arrêt du temps~
+END
+
+DEFINE_PATCH_MACRO ~opcode_231_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ------------------------------------------- *
@@ -11518,6 +11877,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_242~ BEGIN
 	LPM ~opcode_self_probability_242~
 END
 
+DEFINE_PATCH_MACRO ~opcode_242_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------------ *
  * Item: Drain Item Charges [243] *
  * ------------------------------ */
@@ -11851,6 +12217,13 @@ DEFINE_PATCH_MACRO ~opcode_249_is_valid~ BEGIN
 	LPM ~opcode_resref_is_valid~
 END
 
+DEFINE_PATCH_MACRO ~opcode_249_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ----------------------------------- *
  * Spell Effect: Damage Modifier [250] *
  * ----------------------------------- */
@@ -11903,6 +12276,13 @@ DEFINE_PATCH_MACRO ~opcode_251_is_valid~ BEGIN
 	LPM ~opcode_resref_is_valid~
 END
 
+DEFINE_PATCH_MACRO ~opcode_251_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ---------------------------- *
  * Spell Effect: Set Trap [252] *
  * ---------------------------- */
@@ -11932,6 +12312,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_252_is_valid~ BEGIN
 	LPM ~opcode_resref_is_valid~
+END
+
+DEFINE_PATCH_MACRO ~opcode_252_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ---------------------------------------- *
@@ -12332,6 +12719,13 @@ DEFINE_PATCH_MACRO ~opcode_266_is_valid~ BEGIN
 	LPM ~opcode_resref_is_valid~
 END
 
+DEFINE_PATCH_MACRO ~opcode_266_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ---------------------------------------- *
  * Spell Effect: Explore (Wizard Eye) [268] *
  * ---------------------------------------- */
@@ -12341,6 +12735,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_268~ BEGIN
 	LPM ~opcode_self_268~ // ~Permet %toTheTarget% d'explorer la carte~
+END
+
+DEFINE_PATCH_MACRO ~opcode_268_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* -------------------------- *
@@ -12360,6 +12761,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_270~ BEGIN
 	SPRINT description @12700002 // ~de libérer des combats mentaux~
+END
+
+DEFINE_PATCH_MACRO ~opcode_270_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* -------------------------------- *
@@ -13277,6 +13685,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_304~ BEGIN
 	LPM ~opcode_target_probability_32~
 END
 
+DEFINE_PATCH_MACRO ~opcode_304_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ------------------------------------- *
  * Stat: THAC0 Modifier (Off-Hand) [305] *
  * ------------------------------------- */
@@ -13376,6 +13791,13 @@ DEFINE_PATCH_MACRO ~opcode_target_probability_311~ BEGIN
 	LPM ~opcode_self_probability_311~
 END
 
+DEFINE_PATCH_MACRO ~opcode_311_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ----------------------------- *
  *  Spell: Golem Stoneskin [314] *
  * ----------------------------- */
@@ -13412,6 +13834,13 @@ END
 
 DEFINE_PATCH_MACRO ~opcode_target_probability_316~ BEGIN
 	LPM ~opcode_self_probability_316~ // ~de reposer %theTarget%~
+END
+
+DEFINE_PATCH_MACRO ~opcode_316_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
 END
 
 /* ------------------- *
@@ -14793,6 +15222,13 @@ DEFINE_PATCH_MACRO ~opcode_340_is_valid~ BEGIN
 	LPM ~opcode_resref_is_valid~
 END
 
+DEFINE_PATCH_MACRO ~opcode_340_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* ---------------------------------------------- *
  * Spell Effect: Change Critical Hit Effect [341] *
  * ---------------------------------------------- */
@@ -15032,6 +15468,13 @@ DEFINE_PATCH_MACRO ~opcode_self_360~ BEGIN
 	SPRINT description @13600001 // ~Ne quitte plus le groupe si la réputation ne convient pas %toTheTarget%~
 END
 
+DEFINE_PATCH_MACRO ~opcode_360_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	// Parameter #2: Irrevelant
+	SET match_parameter1 = parameter1
+	SET match_parameter2 = parameter2
+END
+
 /* --------------------------------- *
  * Cast spell on critical miss [361] *
  * --------------------------------- */
@@ -15125,6 +15568,11 @@ END
 DEFINE_PATCH_MACRO ~opcode_target_probability_367~ BEGIN
 	SET strref = parameter2 == 0 ? 13670031 : 13670032
 	SPRINT description (AT strref)
+END
+
+DEFINE_PATCH_MACRO ~opcode_367_spell_level_match~ BEGIN
+	// Parameter #1: Irrevelant
+	SET match_parameter1 = parameter1
 END
 
 /* --------------------------------- *
